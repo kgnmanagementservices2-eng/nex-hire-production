@@ -1,0 +1,90 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-tinted: var(--tinted);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+
+  --font-display: "Fraunces", "Instrument Serif", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.75rem;
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.18 0.02 264);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.02 264);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.02 264);
+
+  /* Brand red #FF1F3D */
+  --brand: oklch(0.638 0.245 17);
+  --brand-soft: oklch(0.97 0.02 17);
+  --primary: oklch(0.638 0.245 17);
+  --primary-foreground: oklch(1 0 0);
+
+  --secondary: oklch(0.97 0.01 264);
+  --secondary-foreground: oklch(0.18 0.02 264);
+  --muted: oklch(0.97 0.005 264);
+  --muted-foreground: oklch(0.55 0.02 257);
+  --accent: oklch(0.97 0.02 17);
+  --accent-foreground: oklch(0.638 0.245 17);
+  --destructive: oklch(0.577 0.245 27);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.93 0.01 255);
+  --input: oklch(0.93 0.01 255);
+  --ring: oklch(0.638 0.245 17);
+  --tinted: oklch(0.985 0.012 17);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+@keyframes brand-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-brand-marquee {
+  animation: brand-marquee 35s linear infinite;
+}
+.animate-brand-marquee:hover { animation-play-state: paused; }
