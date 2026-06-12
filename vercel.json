@@ -1,5 +1,5 @@
 {
     "buildCommand": "vite build",
     "outputDirectory": "dist",
-    "serverlessFunctionRegion": "us-east-1"
+    "framework": "other"
 }
